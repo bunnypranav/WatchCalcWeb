@@ -1,0 +1,356 @@
+/* Layout is built for a round display. */
+
+:root {
+  --u: 1vmin;
+  --vw: 100vw;
+  --bg: #000;
+  --fg: #f3f5f9;
+  --dim: #7c8697;
+  --key: #16181d;
+  --op: #23262e;
+  --fn: #141b26;
+  --eq: #1d4ed8;
+  --acc: #60a5fa;
+  --warn: #f87171;
+  --r: calc(3.2 * var(--u));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* display */
+#disp {
+  width: 100%;
+  height: calc(30 * var(--u));
+  padding-top: calc(7 * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+}
+
+#status {
+  width: calc(49 * var(--u));
+  height: calc(4 * var(--u));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: calc(3 * var(--u));
+  letter-spacing: .06em;
+  color: var(--dim);
+}
+
+#status .on {
+  color: var(--acc);
+}
+
+#page-name {
+  color: var(--acc);
+  font-weight: 600;
+}
+
+#expr {
+  width: calc(60 * var(--u));
+  height: calc(6 * var(--u));
+  line-height: calc(6 * var(--u));
+  font-size: calc(4.4 * var(--u));
+  color: var(--dim);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#res {
+  width: calc(73 * var(--u));
+  height: calc(9.5 * var(--u));
+  line-height: calc(9.5 * var(--u));
+  font-size: calc(7.6 * var(--u));
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#res.err {
+  color: var(--warn);
+  font-size: calc(5.4 * var(--u));
+}
+
+#exact {
+  width: calc(86 * var(--u));
+  height: calc(3.5 * var(--u));
+  line-height: calc(3.5 * var(--u));
+  font-size: calc(3.4 * var(--u));
+  color: var(--acc);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* keypad */
+#pad {
+  width: 100%;
+  height: calc(59 * var(--u));
+  flex: none;
+  position: relative;
+  overflow: hidden;
+}
+
+#track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  transition: transform .18s cubic-bezier(.25, .8, .35, 1);
+}
+
+.page {
+  min-width: var(--vw);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(1 * var(--u));
+}
+
+.row {
+  display: flex;
+  gap: calc(1.4 * var(--u));
+  height: calc(14 * var(--u));
+  flex: none;
+}
+
+.row.r1 {
+  width: calc(90 * var(--u));
+}
+
+.row.r2 {
+  width: calc(96 * var(--u));
+}
+
+.row.r3 {
+  width: calc(85 * var(--u));
+}
+
+.row.r4 {
+  width: calc(60 * var(--u));
+}
+
+.k {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--key);
+  border-radius: var(--r);
+  font-size: calc(6.3 * var(--u));
+  font-weight: 500;
+  color: var(--fg);
+  overflow: hidden;
+}
+
+.k.sm {
+  font-size: calc(4.6 * var(--u));
+}
+
+.k.xs {
+  font-size: calc(3.8 * var(--u));
+  letter-spacing: .02em;
+}
+
+.k.op {
+  background: var(--op);
+}
+
+.k.fn {
+  background: var(--fn);
+  color: var(--acc);
+}
+
+.k.eq {
+  background: var(--eq);
+  color: #fff;
+  font-size: calc(7.2 * var(--u));
+}
+
+.k:active,
+.k.press {
+  background: #3b4250;
+  transform: scale(.94);
+}
+
+.k {
+  transition: transform .06s ease, background .06s ease;
+}
+
+.k .hint {
+  position: absolute;
+  top: calc(.6 * var(--u));
+  right: calc(1 * var(--u));
+  font-size: calc(2.5 * var(--u));
+  font-weight: 400;
+  color: #67707f;
+}
+
+/* page dots */
+#dots {
+  height: calc(4 * var(--u));
+  display: flex;
+  align-items: center;
+  gap: calc(1.8 * var(--u));
+  flex: none;
+}
+
+#dots i {
+  width: calc(1.6 * var(--u));
+  height: calc(1.6 * var(--u));
+  border-radius: 50%;
+  background: #333a46;
+}
+
+#dots i.on {
+  background: var(--acc);
+}
+
+/* overlays */
+.sheet {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 20;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: calc(27 * var(--u)) 0 calc(32 * var(--u));
+  display: none;
+}
+
+.sheet.open {
+  display: block;
+}
+
+.sheet .item {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sheet h2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(26 * var(--u));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: calc(2 * var(--u));
+  font-size: calc(4 * var(--u));
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--dim);
+  background: linear-gradient(var(--bg) 72%, rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.item {
+  padding: calc(2.6 * var(--u)) calc(3 * var(--u));
+  margin-bottom: calc(1.6 * var(--u));
+  background: var(--key);
+  border-radius: var(--r);
+}
+
+.item>div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item .sym {
+  font-size: calc(5 * var(--u));
+  color: var(--acc);
+}
+
+.item .val {
+  font-size: calc(3.6 * var(--u));
+  color: var(--fg);
+}
+
+.item .lab {
+  font-size: calc(3 * var(--u));
+  color: var(--dim);
+  margin-top: calc(.4 * var(--u));
+}
+
+.item:active {
+  background: #2a303b;
+}
+
+.item .hexpr {
+  font-size: calc(3.4 * var(--u));
+  color: var(--dim);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item .hres {
+  font-size: calc(5 * var(--u));
+  color: var(--fg);
+  text-align: right;
+}
+
+.close {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(4 * var(--u));
+  width: calc(34 * var(--u));
+  height: calc(12 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--op);
+  border: 1px solid #3a4150;
+  border-radius: calc(6 * var(--u));
+  font-size: calc(4.6 * var(--u));
+  box-shadow: 0 0 calc(4 * var(--u)) calc(4 * var(--u)) var(--bg);
+  z-index: 21;
+}
+
+.empty {
+  text-align: center;
+  color: var(--dim);
+  font-size: calc(3.6 * var(--u));
+  padding-top: calc(10 * var(--u));
+}
