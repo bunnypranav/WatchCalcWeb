@@ -4,7 +4,7 @@
 
 It is built as light as possible to not overload a watch, and can be hosted over bare github pages or similar. Everything here parses in a few milliseconds and the whole app fits in one HTTP round trip through the tunnel. It has a true black background, for best battery life.
 
-The privacy policy served at [/privacy.html](privacy.html) covers the Wear OS app’s Play listing, and not particularly related or required for the web app. I have just put it here to share the same domain name, https://calc.bunnyorg.in. (by the way that is the where I have this hosted using github pages, if anyone is interested)
+The privacy policy served at [/privacy.html](privacy.html) covers the Wear OS app’s Play listing, and not particularly related or required for the web app. I have just put it here to share the same domain name, https://calc.bunnyorg.in. (by the way that is the where I have this hosted for public use, if anyone is interested)
 
 ## Features
 
@@ -34,3 +34,10 @@ finds one like fractions, multiples of π, and surds:
     π/4       0.7853981634   π/4
     (3*6)÷8   2.25           9/4
     ```
+
+## Screenshots
+![page 1](screenshots\1.png)
+![page 2](screenshots\2.png)
+![page 3](screenshots\3.png)
+![page 4](screenshots\4.png)
+![page 5](screenshots\5.png)
