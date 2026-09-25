@@ -125,10 +125,7 @@
     cot: function (x, e) { var v = trig('sin', x, e); if (v === 0) err('Math Error'); return trig('cos', x, e) / v; },
     asec: function (x, e) { if (Math.abs(x) < 1) err('Math Error'); return fromRad(Math.acos(1 / x), e); },
     acsc: function (x, e) { if (Math.abs(x) < 1) err('Math Error'); return fromRad(Math.asin(1 / x), e); },
-    acot: function (x, e) {
-      var r = x === 0 ? PI / 2 : (x > 0 ? Math.atan(1 / x) : PI + Math.atan(1 / x));
-      return fromRad(r, e);
-    },
+    acot: function (x, e) { var r = x === 0 ? PI / 2 : (x > 0 ? Math.atan(1 / x) : PI + Math.atan(1 / x)); return fromRad(r, e); },
     sinh: function (x) { return Math.sinh(x); },
     cosh: function (x) { return Math.cosh(x); },
     tanh: function (x) { return Math.tanh(x); },
@@ -437,7 +434,7 @@
     return s;
   }
 
-  /* number theory (the prime-factorisation page) ----------
+  /* number theory (the prime-factorisation page)
      Trial division by a mod-30 wheel up to 10^5 fully factors anything up to
      10^10. Past that the leftover is split with Miller-Rabin + Pollard rho,
      which needs exact 64-bit modular multiplication and therefore BigInt. */

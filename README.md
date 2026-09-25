@@ -1,10 +1,14 @@
 # WatchCalc
+
 ![alt text](icons/icon.svg)
+
 ### A feature rich scientific calculator built for a round WearOS Watch display
 
-It is built as light as possible to not overload a watch, and can be hosted over bare github pages or similar. Everything here parses in a few milliseconds and the whole app fits in one HTTP round trip through the tunnel. It has a true black background, for best battery life.
+It is built as light as possible to not overload a watch, and can be hosted over bare github pages or similar. Everything here parses in a few milliseconds and the whole app fits in one HTTP round trip through the internet. It has a true black background, for best battery life.
 
-The privacy policy served at [/privacy.html](privacy.html) covers the Wear OS app’s Play listing, and not particularly related or required for the web app. I have just put it here to share the same domain name, https://calc.bunnyorg.in. (by the way that is the where I have this hosted for public use, if anyone is interested)
+The privacy policy served at [/privacy.html](privacy.html) covers the Wear OS app’s Play listing, and not particularly related or required for the web app. I have just put it here to share the same domain name, <https://calc.bunnyorg.in>. (by the way that is the where I have this hosted for public use, if anyone is interested)
+
+The app is also open source and available on GitHub at [https://github.com/bunnypranav/WatchCalcWeb/](https://github.com/bunnypranav/WatchCalcWeb/). The app itself in on playstore, download it here: [https://play.google.com/store/apps/details?id=com.bunnypranav.watchcalc](https://play.google.com/store/apps/details?id=com.bunnypranav.watchcalc).
 
 ## Features
 
@@ -13,10 +17,11 @@ Five keypads. Swipe left or right or tap the page name in the top-right to move 
 | keypad | contents |
 | --- | --- |
 | **123** | digits, `+ − × ÷`, smart parenthesis, `=`, `⌫` |
-| **log** | √ ∛ x² x³ xʸ, ln, log, log₂, 10ˣ, eˣ, x⁻¹, |x|, logᵇ, ʸ√ |
+| **log** | √ ∛ x² x³ xʸ, ln, log, log₂, 10ˣ, eˣ, x⁻¹, | x | , logᵇ, ʸ√ |
 | **trig** | sin/cos/tan, sec/cosec/cot, all six inverses, hyperbolics, π, deg↔︎rad |
 | **more** | nCr, nPr, n!, %, mod, gcd, lcm, E, CONST, HIST, DRG, memory, SIG |
 | **prime** | standalone prime factoriser |
+
 - Tap a function and you land back on the number pad automatically
 - The final **`)`** is auto filled: `sin(30` evaluates to `sin(30)` and `√(2+ln(5` closes both.
 - **CONST** opens a scrollable list of 30 physics/chemistry constants, tap to
@@ -27,7 +32,7 @@ survive a reload.
 - The extras in the factor page: `d` is the number of divisors, `σ` their sum, `φ` [Euler’s totient](https://en.wikipedia.org/wiki/Euler%27s_totient_function).
 - Exact forms: Under every decimal result the app shows the exact value when it
 finds one like fractions, multiples of π, and surds:
-    
+
     ```
     cos(30)   0.8660254038   √3/2
     sin(45)   0.7071067812   √2/2
@@ -36,6 +41,7 @@ finds one like fractions, multiples of π, and surds:
     ```
 
 ## Screenshots
+
 ![page 1](screenshots\1.png)
 ![page 2](screenshots\2.png)
 ![page 3](screenshots\3.png)
